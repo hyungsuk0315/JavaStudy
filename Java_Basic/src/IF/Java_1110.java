@@ -14,9 +14,7 @@ public class Java_1110 {
 		do {
 		//각 자리 수를 더함
 		M = (N%10) + (N/10);
-		System.out.println("M:"+M);
 		N = (N%10)*10 + (M%10);
-		System.out.println("N:"+N);
 		cnt++;
 		}while(temp != N);
 		System.out.println(cnt);
