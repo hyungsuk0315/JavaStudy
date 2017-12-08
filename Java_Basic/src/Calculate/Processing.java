@@ -1,6 +1,8 @@
 int var = 0;
 PImage img_city1;
 PImage img_city2;
+PImage img_city3;
+PImage img_city4;
 //set array
 float[] xPos = new float[250];
 float[] yPos = new float[250];
@@ -18,7 +20,8 @@ void setup() {
   size(1200, 600);
   img_city1 = loadImage("city1.jpg");
   img_city2 = loadImage("city2.jpg");
-  
+  img_city3 = loadImage("city3.jpg");
+  img_city4 = loadImage("city4.jpg");
   for (int i=0; i < 250; i++) {
     xPos[i] = random(1, 1200);
   }
@@ -47,9 +50,12 @@ void draw() {
   }else if(var == 1 ){
     img_city2.resize(1200,600);
     image(img_city2, 0 , 0);
-  }else if(var >= 1){
-    img_city2.resize(1200,600);
-    image(img_city2, 0 , 0);
+  }else if(var == 2 ){
+    img_city3.resize(1200,600);
+    image(img_city3, 0 , 0);
+  }else if(var > 2){
+    img_city4.resize(1200,600);
+    image(img_city4, 0 , 0);
   }
   
   
@@ -57,18 +63,19 @@ void draw() {
   
 
   for (int i=0; i < 250; i++) {
-    if(var == 0) break;
+    if(var == 0) fill(50);
     else if(var == 1) fill(100);
-    else if(var == 2) fill(255);
-    //else if(var == 3) fill(255);
+    else if(var == 2) fill(150);
+    else if(var == 3) fill(255);
     noStroke ();
     ellipse(xPos[i], yPos[i], s[i], s[i]);
   }
-  if(var != 0) tracker();
+   tracker();
 println(var);
 }
 void mouseClicked() {
   var++;
+  var %= 4;
 }
 void tracker () 
 {
@@ -83,9 +90,10 @@ void tracker ()
     b = b +100;
   }
 
-    if(var == 1) stroke(10);
-    else if(var == 2) stroke(255);
-   // else if(var == 3) stroke(255);
+    if(var == 0) stroke(50);
+    else if(var == 1) stroke(100);
+     else if(var == 2) stroke(150);
+     else if(var == 2) stroke(255);
 
 
 
